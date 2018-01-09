@@ -1,0 +1,27 @@
+<div *ngIf="poll" class="poll-container card">
+  <div class="card-header">
+    {{poll.title}}
+  </div>
+  <div class="author">
+    <span><a [routerLink]="['/users', poll.author, 'polls']">{{poll.author}}</a></span>
+  </div>
+  <div class="card-content" *ngIf="!poll.voted || (authService.user && poll.author === authService.user.username)">
+    <form [formGroup]="optionsForm">
+      <div *ngFor="let option of poll.options; let i = index" class="option">
+        <label>
+          <input [value]="option.title" formControlName="option" type="radio" class="radio">
+          <span title="Select Option">{{i + 1}}. {{option.title}}</span>
+        </label>
+      </div>
+    </form>
+    <div class="button-container">
+      <button *ngIf="authService.user && !addingOption" (click)="onAddClick()">Add Option</button>
+      <fcc-add-option *ngIf="addingOption" (optionAdd)="onOptionAddHandler()"></fcc-add-option>
+      <button type="button" (click)="vote()" [disabled]="poll.voted || !optionsForm.controls['option'].value">
+        Vote
+      </button>
+    </div>
+  </div>
+  <fcc-poll-chart [poll]="poll" *ngIf="poll.voted || (authService.user && poll.author === authService.user.username)">
+  </fcc-poll-chart>
+</div>

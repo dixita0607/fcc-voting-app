@@ -1,0 +1,28 @@
+@import "../../../variables";
+
+.default-toast-container {
+  max-width: 200px;
+  min-width: 200px;
+  position: fixed;
+  right: 50px;
+  bottom: 0;
+  opacity: 0;
+  transition: bottom 800ms, opacity 800ms;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  &.toast-position {
+    bottom: 50px;
+    opacity: 1;
+  }
+  &.success-toast {
+    background-color: $successColor;
+  }
+  &.error-toast {
+    background-color: $errorColor;
+  }
+  padding: 10px;
+  .toast-message {
+    font-size: 14px;
+    //color: black;
+    margin: 0;
+  }
+}

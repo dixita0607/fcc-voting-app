@@ -1,0 +1,33 @@
+@import "../variables";
+
+.title {
+  flex-grow: 1;
+  text-align: left;
+  a {
+    color: $textAndIconsColor;
+  }
+}
+
+.app-title {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  background-color: $darkPrimaryColor;
+  color: $textAndIconsColor;
+  margin: 0;
+  font-size: 28px;
+  padding: 8px 8px 8px 24px;
+  font-weight: bold;
+  text-align: center;
+  button {
+    background-color: darken($accentColor, 5);
+    color: $textAndIconsColor;
+    font-weight: bold;
+    &:hover {
+      background-color: $textAndIconsColor;
+      color: $accentColor;
+      a {
+        color: $accentColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.form {
+  display: flex;
+  align-items: center;
+  .form-control {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    input {
+      flex-grow: 1;
+      border-right: none;
+      margin: 0;
+    }
+  }
+}

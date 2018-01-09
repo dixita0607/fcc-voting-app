@@ -1,0 +1,4 @@
+<div [ngClass]="{'default-toast-container': true, 'success-toast': !toastService.isError, 'error-toast': toastService.isError,
+                'toast-position': toastService.showing}">
+  <p class="toast-message">{{toastService.message | emoji:toastService.isError}}</p>
+</div>

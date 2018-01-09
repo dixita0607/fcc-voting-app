@@ -1,0 +1,99 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+  a {
+    text-decoration: none;
+  }
+  input {
+    border-radius: 0;
+    padding: 1px 5px;
+    line-height: 24px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid $primaryColor;
+    &:focus {
+      border-color: $accentColor;
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  button {
+    background-color: $textAndIconsColor;
+    color: $primaryColor;
+    line-height: 23px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid $primaryColor;
+    text-transform: uppercase;
+    display: inline-block;
+    outline: none;
+    a {
+      text-decoration: none;
+      color: $textAndIconsColor;
+    }
+    &:not(:disabled):hover {
+      color: $textAndIconsColor;
+      background-color: $primaryColor;
+    }
+    &:active {
+      background-color: $darkPrimaryColor;
+    }
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+
+  .form-button {
+    background-color: $primaryColor;
+    color: $textAndIconsColor;
+    &:hover {
+      background-color: $darkPrimaryColor;
+    }
+  }
+
+  .card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 30px auto;
+    border: 2px solid $accentColor;
+    .card-header {
+      color: $textAndIconsColor;
+      background-color: $accentColor;
+      padding: 5px;
+      box-sizing: border-box;
+      font-size: 26px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-footer {
+      padding: 5px;
+      text-align: right;
+      border-top: 2px solid $accentColor;
+      color: $darkPrimaryColor;
+    }
+  }
+
+  .form-control {
+    padding: 5px;
+    .control-label {
+      font-size: 14px;
+      color: $darkPrimaryColor;
+    }
+    input {
+      margin: 5px 0;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import "../../../variables";
+
+.poll-container {
+  max-width: 500px;
+  .delete-button {
+    background-color: $accentColor;
+    color: $textAndIconsColor;
+    border: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .author {
+    text-align: right;
+    margin-top: 6px;
+    span {
+      background-color: $accentColor;
+      color: $textAndIconsColor;
+      padding: 2px 8px;
+      a {
+        text-decoration: none;
+        color: $textAndIconsColor;
+      }
+    }
+  }
+  .option {
+    label {
+      cursor: pointer;
+    }
+    color: $primaryColor;
+    margin: 5px 0;
+    span {
+      &:hover {
+        color: $accentColor;
+      }
+    }
+    .radio {
+      display: none;
+      &.ng-dirty:checked {
+        & + span {
+          color: $primaryColor;
+        }
+      }
+      &.ng-dirty:not(:checked) {
+        & + span {
+          color: $dividerColor;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}

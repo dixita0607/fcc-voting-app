@@ -1,0 +1,13 @@
+<div class="polls-list card">
+  <ul *ngIf="polls.length > 0">
+    <li *ngFor="let poll of polls" class="poll-list-item">
+      <div class="list-item-container">
+        <a [routerLink]="['/polls', poll.id]">{{poll.title}}</a>
+        <button *ngIf="authService.user && authService.user.username === poll.author" (click)="onDelete(poll.id)"
+                class="delete-button">Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="polls.length <= 0" class="no-polls">No polls found.</div>
+</div>

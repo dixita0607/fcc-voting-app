@@ -1,0 +1,37 @@
+{
+  "name": "fcc-voting-app",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "serve": "node $NODE_DEBUG_OPTION server/index.js",
+    "dev": "ng build --watch & npm run serve",
+    "start": "ng build && npm run serve"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "body-parser": "^1.18.2",
+    "core-js": "^2.4.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.13.1",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.14"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.5.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
+    "typescript": "~2.4.2"
+  }
+}

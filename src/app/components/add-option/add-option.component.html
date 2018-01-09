@@ -1,0 +1,8 @@
+<div>
+  <form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" class="form">
+    <div class="form-control">
+      <input type="text" formControlName="option" autofocus>
+    </div>
+    <button type="submit" [disabled]="adding">Add</button>
+  </form>
+</div>

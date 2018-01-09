@@ -1,0 +1,40 @@
+@import '../../../variables';
+
+.polls-list {
+
+  max-width: 600px;
+  padding: 15px;
+
+  ul {
+    padding: 0;
+    .poll-list-item {
+      text-align: center;
+      padding: 5px;
+      font-size: 22px;
+
+      .list-item-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+          color: $primaryColor;
+          text-decoration: none;
+          padding-right: 10px;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:active {
+            color: darken($primaryColor, 5);
+          }
+        }
+      }
+    }
+
+  }
+
+  .no-polls {
+    text-align: center;
+    color: $primaryColor;
+    font-size: 20px;
+  }
+}
