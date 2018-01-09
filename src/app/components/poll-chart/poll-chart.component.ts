@@ -40,7 +40,7 @@ export class PollChartComponent implements OnInit, OnChanges {
         data: {content},
         size: {
           canvasHeight: 350,
-          canvasWidth: 400
+          canvasWidth: 500
         }
       });
     }

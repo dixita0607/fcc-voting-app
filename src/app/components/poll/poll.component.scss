@@ -2,12 +2,19 @@
 
 .poll-container {
   max-width: 500px;
-  .delete-button {
-    background-color: $accentColor;
-    color: $textAndIconsColor;
-    border: none;
-    &:hover {
-      text-decoration: underline;
+  .share-container {
+    display: flex;
+    align-items: center;
+    .share-input {
+      border: none;
+      text-align: center;
+      cursor: default;
+      font-size: 12px;
+      flex-grow: 1;
+      color: $primaryColor;
+      &::selection {
+        background: white;
+      }
     }
   }
   .author {

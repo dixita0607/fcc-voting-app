@@ -21,7 +21,11 @@
         Vote
       </button>
     </div>
+    <fcc-poll-chart [poll]="poll" *ngIf="poll.voted || (authService.user && poll.author === authService.user.username)">
+    </fcc-poll-chart>
   </div>
-  <fcc-poll-chart [poll]="poll" *ngIf="poll.voted || (authService.user && poll.author === authService.user.username)">
-  </fcc-poll-chart>
+  <div class="card-footer share-container">
+    <input #link type="text" readonly [value]="location" title="Link" class="share-input">
+    <button type="button" (click)="copyUrl()">Share</button>
+  </div>
 </div>

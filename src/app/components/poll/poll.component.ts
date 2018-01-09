@@ -15,12 +15,13 @@ import {ToastService} from "../../services/toast.service";
 export class PollComponent implements OnInit {
 
   poll: Poll;
-
   addingOption: boolean = false;
-
   pollId: string;
-
   optionsForm: FormGroup;
+  location: string;
+
+  @ViewChild('link')
+  link: ElementRef;
 
   constructor(private pollsService: PollService,
               private activatedRoute: ActivatedRoute,
@@ -36,6 +37,7 @@ export class PollComponent implements OnInit {
       this.getPoll(this.pollId);
     });
     this.createOptionsForm();
+    this.location = window.location.href;
   }
 
   createOptionsForm() {
@@ -72,5 +74,11 @@ export class PollComponent implements OnInit {
         error => {
           this.toastService.showToast('Could not vote.', true);
         });
+  }
+
+  copyUrl() {
+    this.link.nativeElement.select();
+    document.execCommand('Copy');
+    this.toastService.showToast('Link copied.');
   }
 }
