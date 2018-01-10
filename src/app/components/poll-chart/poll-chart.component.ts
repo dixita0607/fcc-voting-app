@@ -34,13 +34,20 @@ export class PollChartComponent implements OnInit, OnChanges {
         label: option.title,
         value: option.votes
       }));
+    const canvasWidth = 500, canvasHeight = 350;
     if (content.length > 0) {
       if (this.pie) this.pie.destroy();
       this.pie = new (<any> window).d3pie(this.chart.nativeElement, {
         data: {content},
         size: {
-          canvasHeight: 350,
-          canvasWidth: 500
+          canvasWidth,
+          canvasHeight
+        },
+        callbacks: {
+          onload: () => {
+            this.chart.nativeElement.querySelector('svg')
+              .setAttribute('viewBox', `0 0 ${canvasWidth} ${canvasHeight}`);
+          }
         }
       });
     }
