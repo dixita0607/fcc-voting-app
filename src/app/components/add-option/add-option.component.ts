@@ -15,7 +15,7 @@ export class AddOptionComponent implements OnInit {
   adding: boolean = false;
 
   @Output()
-  optionAdd: EventEmitter<any> = new EventEmitter();
+  optionAdd: EventEmitter<null> = new EventEmitter();
 
   constructor(private fb: FormBuilder,
               private pollService: PollService,

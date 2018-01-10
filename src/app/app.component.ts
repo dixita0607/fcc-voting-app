@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./services/auth.service";
 import {ActivationEnd, NavigationEnd, Router} from "@angular/router";
 import {CreatePollComponent} from "./components/create-poll/create-poll.component";
@@ -9,13 +9,16 @@ import {UserPollsComponent} from "./components/user-polls/user-polls.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title: string = 'FCC Voting App';
   showCreatePoll: boolean;
   showMyPolls: boolean;
 
   constructor(public authService: AuthService, private router: Router) {
+  }
+
+  ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof ActivationEnd)
         switch (event.snapshot.component) {
@@ -25,7 +28,7 @@ export class AppComponent {
             break;
           case UserPollsComponent:
             this.showCreatePoll = true;
-            this.showMyPolls = false;
+            this.showMyPolls = this.authService.user && this.authService.user.username != event.snapshot.params.username;
             break;
           default:
             this.showMyPolls = true;

@@ -10,10 +10,10 @@ import {CreatePollComponent} from "./components/create-poll/create-poll.componen
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'polls', component: PollsComponent},
   {path: 'users/:username/polls', component: UserPollsComponent},
   {path: 'users/:username/polls/create', component: CreatePollComponent},
-  {path: 'polls/:id', component: PollComponent}
+  {path: 'polls/:id', component: PollComponent},
+  {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({

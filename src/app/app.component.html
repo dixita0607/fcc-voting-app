@@ -1,5 +1,5 @@
 <div class="app-title">
-  <div class="title"><a [routerLink]="['/polls']">{{title}}</a></div>
+  <div class="title"><a [routerLink]="['/home']">{{title}}</a></div>
   <button type="button" *ngIf="!authService.user"><a href="/api/auth/twitter">Login With Twitter</a></button>
   <button type="button" (click)="onClickMyPolls()" *ngIf="showMyPolls && authService.user">My Polls</button>
   <button type="button" *ngIf="showCreatePoll && authService.user" (click)="onCreatePoll()">Create Poll</button>

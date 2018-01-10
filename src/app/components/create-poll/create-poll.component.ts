@@ -21,7 +21,7 @@ export class CreatePollComponent implements OnInit {
               private router: Router,
               private authService: AuthService,
               private toastService: ToastService) {
-    if (!this.authService.user) this.router.navigate(['/polls']);
+    if (!this.authService.user) this.router.navigate(['/home']);
   }
 
   ngOnInit() {

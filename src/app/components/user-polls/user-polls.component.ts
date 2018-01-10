@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
 import "rxjs/add/operator/map";
 import {Poll} from "../../models/poll";
 import {PollService} from "../../services/poll.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {ToastService} from "../../services/toast.service";
 
 @Component({
   selector: 'fcc-user-polls',
@@ -13,29 +14,34 @@ import {AuthService} from "../../services/auth.service";
 export class UserPollsComponent implements OnInit {
 
   polls: Poll[] = [];
-  loading: boolean = true;
 
   constructor(private pollService: PollService,
               private authService: AuthService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private toastService: ToastService) {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => this.getUserPolls(params['username']));
+    this.activatedRoute.params.subscribe(params => {
+      this.getPolls();
+    })
   }
 
-  getUserPolls(username: string): void {
-    this.pollService.getByUser(username).subscribe(
-      response => {
-        this.polls = response;
-        this.loading = false;
-      },
-      error => {
-        console.log(error);
-        this.router.navigate(['/home']);
-      }
-    );
+  getPolls(): void {
+    this.pollService.getByUser(this.activatedRoute.snapshot.params.username)
+      .subscribe(
+        response => {
+          this.polls = response;
+        },
+        error => {
+          this.toastService.showToast('Could not get polls.', true);
+        }
+      );
+  }
+
+  onRefresh() {
+    this.getPolls();
   }
 
 }
